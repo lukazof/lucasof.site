@@ -1,0 +1,39 @@
+.blog-post-card{
+    background-color: rgb(5, 5, 5);
+    text-align: justify;
+    margin-bottom: 30px;
+    width: 580px;
+}
+
+.blog-post-card h2{
+    margin: 15px;
+}
+
+.blog-post-card p{
+    padding: 15px;
+}
+
+
+.blog-home{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card-header{
+    display: flex;
+    align-items: center;
+}
+
+.blog-post-card-header h3{
+    opacity: .6;
+}
+
+.blog-post-container{
+    color: white;
+    width: 580px;
+    max-width: 580px;
+
+}
+
