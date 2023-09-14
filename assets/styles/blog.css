@@ -1,0 +1,27 @@
+.post-info{
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.post{
+    max-width: 960px;
+    width: 100%;
+    background-color: rgba(22, 22, 22, 0.1);
+    padding: 10px;
+    font-size: 18px;
+}
+
+.post-header{
+    margin-bottom: 15px;
+}
+
+.post-header p, hr{
+    opacity: .6;
+}
+
+.centered-img{
+    padding: 10px;
+    text-align: center;
+}
