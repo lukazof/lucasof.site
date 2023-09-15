@@ -1,5 +1,5 @@
 .blog-post-card{
-    background-color: rgb(5, 5, 5);
+    background-color: rgba(5, 5, 5, 0.4);
     text-align: justify;
     margin-bottom: 30px;
     width: 580px;
@@ -24,6 +24,12 @@
 .blog-post-card-header{
     display: flex;
     align-items: center;
+    
+}
+
+.centered-img{
+    text-align: center;
+    padding: 10px;
 }
 
 .blog-post-card-header h3{
