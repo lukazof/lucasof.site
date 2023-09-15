@@ -8,12 +8,14 @@
 .post{
     max-width: 960px;
     width: 100%;
-    background-color: rgba(22, 22, 22, 0.1);
+    background-color: rgba(15, 15, 15, 0.1);
     padding: 10px;
     font-size: 18px;
+    padding-bottom: 30px;
 }
 
 .post-header{
+    margin-top: 20px;
     margin-bottom: 15px;
 }
 
