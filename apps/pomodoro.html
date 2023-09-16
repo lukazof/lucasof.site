@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lucasof</title>
+    <link rel="stylesheet" href="https://lucasof.site/style.css">
+    <link rel="icon" href="https://lucasof.site/assets/img/icon.png">
+
+    <style>
+        #startPauseButton{
+            border: none;
+            padding: 5px 15px 5px 15px;
+            color: aliceblue;
+            background-color: rgb(42, 165, 89);
+            font-size: 18px;
+            border-radius: 2px;
+            width: 100px;
+        }
+
+        #resetButton{
+            border: none;
+            padding: 5px 15px 5px 15px;
+            color: aliceblue;
+            background-color: rgb(165, 50, 42);
+            font-size: 18px;
+            border-radius: 2px;
+            width: 100px;
+        }
+
+        #timer{
+            font-size: 42px;
+        }
+
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <h1><a href="https://lucasof.site">lucasof</a></h1>
+            <li><a href="https://lucasof.site/whoami.html">About</a></li>
+            <li><a href="https://lucasof.site/blog.html">Blog</a></li>
+            <li><a href="https://lucasof.site/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div style="text-align: center; font-size: 24px; margin-top: 150px;">
+        <h2>Pomodoro</h2>
+        <p id="timer">25:00</p>
+        <br>
+        <div class="buttons">
+            <button id="startPauseButton">Start</button>
+            <br>
+            <button id="resetButton">Restart</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>@ 2023 lucasof</p>
+    </footer>
+
+    <script>
+        let interval;
+        let minutes = 25;
+        let seconds = 0;
+        let isRunning = false;
+
+        const timerDisplay = document.getElementById("timer");
+        const startPauseButton = document.getElementById("startPauseButton");
+        const resetButton = document.getElementById("resetButton");
+
+        function updateTimerDisplay() {
+            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    
+            if (minutes === 0 && seconds === 0) {
+                clearInterval(interval);
+                isRunning = false;
+                startPauseButton.textContent = "Start";
+                alert("Time is over!");
+                resetTimer();
+            }
+        }
+
+        function toggleTimer() {
+            if (!isRunning) {
+                interval = setInterval(() => {
+                    if (minutes === 0 && seconds === 0) {
+                        clearInterval(interval);
+                        isRunning = false;
+                        startPauseButton.textContent = "Start";
+                    } else {
+                        if (seconds === 0) {
+                            minutes--;
+                            seconds = 59;
+                        } else {
+                            seconds--;
+                        }
+                        updateTimerDisplay();
+                    }
+                }, 1000);
+                isRunning = true;
+                startPauseButton.textContent = "Pause";
+            } else {
+                clearInterval(interval);
+                isRunning = false;
+                startPauseButton.textContent = "Start";
+            }
+        }
+
+        function confirmResetTimer() {
+            const confirmation = confirm("Are you sure you want to restart the timer?");
+    
+            if (confirmation) {
+            resetTimer();
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(interval);
+            minutes = 25;
+            seconds = 0;
+            updateTimerDisplay();
+            isRunning = false;
+            startPauseButton.textContent = "Start";
+        }
+
+        startPauseButton.addEventListener("click", toggleTimer);
+        resetButton.addEventListener("click", confirmResetTimer);
+    </script>
+</body>
+</html>
