@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head lang="{{lang}}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}</title>
+
+        {{styles}}
+        {{styles2}}
+        {{styles3}}
+
+    </head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="{{baseurl}}index.html">lucasof</a></h1>
+            
+            <div class="items">
+                <a href="{{baseurl}}blog.html">Blog</a>
+                <a href="{{baseurl}}projects.html">Projects</a>
+                <a href="{{baseurl}}whoami.html">About</a>
+                <a href="{{baseurl}}contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+
+        <!-- If this is not a post page, this will not be rendered -->
+        {{ postContent }}
+    </main>
+
+    <footer>
+        <p>lucasof © 2023 - Built with <a href="https://sliver.trivalent.tech">Sliver</a></p>
+    </footer>
+
+</body>
+</html>

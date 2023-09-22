@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Blog</h1>
+    <br>
+    <p>Sometimes I just post what comes to my mind, most of the things here were unplanned, but feel free to read!</p>
+    <br>
+    {% for post in blog_posts %}
+    <a class="blog-post" href="{{ post.post_file }}">
+        <h2 class="post-title">{{ post.post_title }}</h2>
+        <p class="post-date">{{ post.post_date }} | tags: {{ post.post_tags | join(", ") }}</p>
+        <p class="post-description">{{ post.post_description }}</p>
+    </a>
+    {% endfor %}
+    
+{% endblock %}
+
